@@ -148,12 +148,14 @@ int main(void)
 				   switch(ButtonMatrixState)
 				   {
 					  case 512:       //press 2
-						  statedisplay = state2;
+						  statedisplay = state3;
 						  break;
-					  case 8:
+					  case 8:        //press clear
 						  statedisplay = state1;
 						  break;
-					  default:
+					  case 32768:    //press okay
+						  break;
+					  default:       //กดมั่ว
 						  statedisplay = statewrong;
 						  break;
 					}
@@ -161,13 +163,15 @@ int main(void)
 				case state3next3:
 					switch(ButtonMatrixState)
 					{
-					   case 512:
-						  statedisplay = state2;
+					   case 512:      //press 3
+						  statedisplay = state4;
 						  break;
-					   case 8:
+					   case 8:       //press clear
 						  statedisplay = state1;
 						  break;
-					   default:
+					   case 32768:      //press okay
+						  break;
+					   default:        //กดมั่ว
 						  statedisplay = statewrong;
 						  break;
 					}

@@ -44,7 +44,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 //save status of Button Matrix
-uint16_t ButtonMatrixState = 0;
+uint16_t ButtonMatrixState = 0;    //biggest
 
 //Button TimeStamp
 uint32_t ButtonMatrixTimestamp = 0;
@@ -110,7 +110,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  uint16_t allaybutton[2];
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,152 +121,158 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  ButtonMatrixUpdate();
-	  switch(statedisplay)
+	  allaybutton[0] = ButtonMatrixState;
+	  if(allaybutton[0] != 0 && allaybutton[1] == 0)
 	  {
-	  	  case state1next6:
-	  		  switch(ButtonMatrixState)
-	  	  	  {
-	  	  		  case 64:     //press 6
-	  	  			  statedisplay = state2;
-	  	  			  break;
-	  	  		  case 8:      //press clear
-	  	  			  statedisplay = state1;
-	  	  			  break;
-	  	  		  case 32768:   //press okay
-	  	  			  break;
-	  	  		  default:     //กดมั่ว
-	  	  			  statedisplay = statewrong;
-	  	  			  break;
-	  	  	  }
+
+		  switch(statedisplay)
+		  {
+			  case state1next6:
+				  switch(ButtonMatrixState)
+				  {
+					  case 64:     //press 6
+						  statedisplay = state2;
+						  break;
+					  case 8:      //press clear
+						  statedisplay = state1;
+						  break;
+					  case 32768:   //press okay
+						  break;
+					  default:     //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
+				  }
 
 
-	  	   case state2next2:
-	  		   switch(ButtonMatrixState)
-	  		   {
-	  		 	  case 512:
-	  		 	  	  statedisplay = state2;
-	  		 	  	  break;
-	  		 	  case 8:
-	  		 	  	  statedisplay = state1;
-	  		 	  	  break;
-	  		 	  default:
-	  		 	  	  statedisplay = statewrong;
-	  		 	  	  break;
-	  		 	}
+			   case state2next2:
+				   switch(ButtonMatrixState)
+				   {
+					  case 512:       //press 2
+						  statedisplay = state2;
+						  break;
+					  case 8:
+						  statedisplay = state1;
+						  break;
+					  default:
+						  statedisplay = statewrong;
+						  break;
+					}
 
-	  		case state3next3:
-	  			switch(ButtonMatrixState)
-	  			{
-	  			   case 512:
-	  				  statedisplay = state2;
-	  				  break;
-	  			   case 8:
-	  				  statedisplay = state1;
-	  				  break;
-	  			   default:
-	  				  statedisplay = statewrong;
-	  				  break;
-	  		    }
+				case state3next3:
+					switch(ButtonMatrixState)
+					{
+					   case 512:
+						  statedisplay = state2;
+						  break;
+					   case 8:
+						  statedisplay = state1;
+						  break;
+					   default:
+						  statedisplay = statewrong;
+						  break;
+					}
 
-	  		case state4next4:
-	  			 switch(ButtonMatrixState)
-	  			 {
-	  			    case 512:
-	  				   statedisplay = state2;
-	  				   break;
-	  				case 8:
-	  				   statedisplay = state1;
-	  				   break;
-	  				default:
-	  				   statedisplay = statewrong;
-	  				   break;
-	  			 }
+				case state4next4:
+					 switch(ButtonMatrixState)
+					 {
+						case 512:
+						   statedisplay = state2;
+						   break;
+						case 8:
+						   statedisplay = state1;
+						   break;
+						default:
+						   statedisplay = statewrong;
+						   break;
+					 }
 
-	  	     case state2next3:
-	  	    	  switch(ButtonMatrixState)
-	  	    	  {
-	  	    		 case 512:
-	  	    		    statedisplay = state2;
-	  	    		  	break;
-	  	    		 case 8:
-	  	    		  	statedisplay = state1;
-	  	    		  	break;
-	  	    		 default:
-	  	    		  	statedisplay = statewrong;
-	  	    		    break;
-	  	    	  }
+				 case state2next3:
+					  switch(ButtonMatrixState)
+					  {
+						 case 512:
+							statedisplay = state2;
+							break;
+						 case 8:
+							statedisplay = state1;
+							break;
+						 default:
+							statedisplay = statewrong;
+							break;
+					  }
 
-	  	      case state2next3:
-	  	    	   switch(ButtonMatrixState)
-	  	    	   {
-	  	    		  case 512:
-	  	    		  	 statedisplay = state2;
-	  	    		  	 break;
-	  	    		  case 8:
-	  	    		  	 statedisplay = state1;
-	  	    		  	 break;
-	  	    		  default:
-	  	    		  	 statedisplay = statewrong;
-	  	    		  	 break;
-	  	    	   }
+				  case state2next3:
+					   switch(ButtonMatrixState)
+					   {
+						  case 512:
+							 statedisplay = state2;
+							 break;
+						  case 8:
+							 statedisplay = state1;
+							 break;
+						  default:
+							 statedisplay = statewrong;
+							 break;
+					   }
 
-	  	      case state2next3:
-	  	    	 	 switch(ButtonMatrixState)
-	  	    	 	 {
-	  	    	 	  	case 512:
-	  	    	 	  		statedisplay = state2;
-	  	    	 	  		break;
-	  	    	 	  	case 8:
-	  	    	 	  		statedisplay = state1;
-	  	    	 	  		break;
-	  	    	 	  	default:
-	  	    	 	  		statedisplay = statewrong;
-	  	    	 	  	    break;
-	  	    	 	 }
+				  case state2next3:
+						 switch(ButtonMatrixState)
+						 {
+							case 512:
+								statedisplay = state2;
+								break;
+							case 8:
+								statedisplay = state1;
+								break;
+							default:
+								statedisplay = statewrong;
+								break;
+						 }
 
-	  	    	 case state2next3:
-	  	    	 	  switch(ButtonMatrixState)
-	  	    	 	  {
-	  	    	 		  case 512:
-	  	    	 		  	   statedisplay = state2;
-	  	    	 		  	   break;
-	  	    	 		  case 8:
-	  	    	 		  	   statedisplay = state1;
-	  	    	 		  	   break;
-	  	    	 		  default:
-	  	    	 		  	   statedisplay = statewrong;
-	  	    	 		  	   break;
-	  	    	 	   }
+					 case state2next3:
+						  switch(ButtonMatrixState)
+						  {
+							  case 512:
+								   statedisplay = state2;
+								   break;
+							  case 8:
+								   statedisplay = state1;
+								   break;
+							  default:
+								   statedisplay = statewrong;
+								   break;
+						   }
 
-	  	    	 	case state2next3:
-	  	    	 		 switch(ButtonMatrixState)
-	  	    	 		 {
-	  	    	 		    case 512:
-	  	    	 		  	     statedisplay = state2;
-	  	    	 		  	     break;
-	  	    	 		  	case 8:
-	  	    	 		  	     statedisplay = state1;
-	  	    	 		  	     break;
-	  	    	 		  	default:
-	  	    	 		  	     statedisplay = statewrong;
-	  	    	 		  	     break;
-	  	    	 		 }
+						case state2next3:
+							 switch(ButtonMatrixState)
+							 {
+								case 512:
+									 statedisplay = state2;
+									 break;
+								case 8:
+									 statedisplay = state1;
+									 break;
+								default:
+									 statedisplay = statewrong;
+									 break;
+							 }
 
-	  	    	     case state2next3:
-	  	    	 		  switch(ButtonMatrixState)
-	  	    	 		  {
-	  	    	 			 case 512:
-	  	    	 			  	  statedisplay = state2;
-	  	    	 			  	  break;
-	  	    	 			 case 8:
-	  	    	 			      statedisplay = state1;
-	  	    	 			  	  break;
-	  	    	 			 default:
-	  	    	 			  	  statedisplay = statewrong;
-	  	    	 			  	  break;
-	  	    	 		  }
+						 case state2next3:
+							  switch(ButtonMatrixState)
+							  {
+								 case 512:
+									  statedisplay = state2;
+									  break;
+								 case 8:
+									  statedisplay = state1;
+									  break;
+								 default:
+									  statedisplay = statewrong;
+									  break;
+							  }
 
-	  }
+		  	  	  }
+	    }
+	  	allaybutton[1] = allaybutton[0];
   }
   /* USER CODE END 3 */
 }
@@ -432,7 +438,7 @@ uint16_t ButtonMatrixPin[8]= {GPIO_PIN_10,GPIO_PIN_3,GPIO_PIN_5,GPIO_PIN_4,GPIO_
 uint8_t ButtonMatrixRow = 0;
 void ButtonMatrixUpdate()
 {
-	if(HAL_GetTick() - ButtonMatrixTimestamp >= 100)
+	if(HAL_GetTick() - ButtonMatrixTimestamp >= 20)
 	{
 		ButtonMatrixTimestamp = HAL_GetTick();
 		int i;

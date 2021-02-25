@@ -163,7 +163,7 @@ int main(void)
 				case state3next3:
 					switch(ButtonMatrixState)
 					{
-					   case 512:      //press 3
+					   case 1024:      //press 3
 						  statedisplay = state4;
 						  break;
 					   case 8:       //press clear
@@ -179,8 +179,8 @@ int main(void)
 				case state4next4:
 					 switch(ButtonMatrixState)
 					 {
-						case 512:
-						   statedisplay = state2;
+						case 16:        //press 4
+						   statedisplay = state5;
 						   break;
 						case 8:
 						   statedisplay = state1;

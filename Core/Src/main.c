@@ -44,10 +44,11 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 //save status of Button Matrix
-uint16_t ButtonMatrixState = 0;    //biggest
+uint16_t ButtonMatrixState = 0;    //biggest ใหญ่ๆเอาไว้บนจะดี
 
 //Button TimeStamp
 uint32_t ButtonMatrixTimestamp = 0;
+
 
 enum statedisplay
 {
@@ -112,6 +113,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   uint16_t allaybutton[2];
+  uint8_t statedisplay = state1next6;
   /* USER CODE END 2 */
 
   /* Infinite loop */

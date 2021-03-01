@@ -217,32 +217,37 @@ int main(void)
 				  case state6next5:
 					   switch(ButtonMatrixState)
 					   {
-						  case 32:
-							 statedisplay = state2;
+						  case 32:            //press 5
+							 statedisplay = state7next0;
 							 break;
-						  case 8:
-							 statedisplay = state1;
+						  case 8:             //press  clear
+							 statedisplay = state1next6;
 							 break;
-						  default:
+						  case 32768:      //press okay
+							 break;
+						  default:           //กดมั่ว
 							 statedisplay = statewrong;
 							 break;
 					   }
+					   break;
 
-				  case state2next3:
+				  case state7next0:
 						 switch(ButtonMatrixState)
 						 {
-							case 512:
-								statedisplay = state2;
+							case 4096:            //press 0
+								statedisplay = state8next0;
 								break;
-							case 8:
-								statedisplay = state1;
+							case 8:                  //press clear
+								statedisplay = state1next6;
+								break;
+							case 32768:
 								break;
 							default:
 								statedisplay = statewrong;
 								break;
 						 }
 
-					 case state2next3:
+					 case state8next0:
 						  switch(ButtonMatrixState)
 						  {
 							  case 512:
@@ -256,21 +261,21 @@ int main(void)
 								   break;
 						   }
 
-						case state2next3:
-							 switch(ButtonMatrixState)
-							 {
-								case 512:
-									 statedisplay = state2;
-									 break;
-								case 8:
-									 statedisplay = state1;
-									 break;
-								default:
-									 statedisplay = statewrong;
-									 break;
-							 }
+					  case state9next0:
+						  switch(ButtonMatrixState)
+						  {
+						  	  case 512:
+						  		  statedisplay = state2;
+						  		  break;
+							  case 8:
+								  statedisplay = state1;
+								  break;
+						      default:
+							      statedisplay = statewrong;
+								  break;
+						   }
 
-						 case state2next3:
+						 case state10next2:
 							  switch(ButtonMatrixState)
 							  {
 								 case 512:
@@ -283,6 +288,48 @@ int main(void)
 									  statedisplay = statewrong;
 									  break;
 							  }
+
+						 case state11next5:
+							  switch(ButtonMatrixState)
+							  {
+							  	  case 512:
+							  		  statedisplay = state2;
+							  		  break;
+							      case 8:
+							    	  statedisplay = state1;
+							  		  break;
+							  	  default:
+							  		  statedisplay = statewrong;
+							  		  break;
+					           }
+
+						  case stateONLED:
+							    switch(ButtonMatrixState)
+							    {
+							  		case 512:
+							  			statedisplay = state2;
+							  		    break;
+							  		case 8:
+							  			statedisplay = state1;
+							  		    break;
+							  	    default:
+							  		    statedisplay = statewrong;
+							  			break;
+							    }
+
+						   case statewrong:
+							   switch(ButtonMatrixState)
+							   {
+							   	   case 512:
+							   		   statedisplay = state2;
+							    	   break;
+							   	   case 8:
+							    	   statedisplay = state1;
+							    	   break;
+							       default:
+							    	   statedisplay = statewrong;
+							    	   break;
+							   }
 
 		  	  	  }
 	    }

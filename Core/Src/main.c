@@ -142,58 +142,64 @@ int main(void)
 						  statedisplay = statewrong;
 						  break;
 				  }
+				  break;
 
 
-			   case state2next2:
+			  case state2next2:
+				  switch(ButtonMatrixState)
+				  {
+					 case 512:       //press 2
+						 statedisplay = state3;
+						 break;
+					 case 8:        //press clear
+						 statedisplay = state1;
+						 break;
+					 case 32768:    //press okay
+						 break;
+					 default:       //กดมั่ว
+						 statedisplay = statewrong;
+						 break;
+				  }
+				  break;
+
+			  case state3next3:
 				   switch(ButtonMatrixState)
 				   {
-					  case 512:       //press 2
-						  statedisplay = state3;
-						  break;
-					  case 8:        //press clear
-						  statedisplay = state1;
-						  break;
+					  case 1024:      //press 3
+						 statedisplay = state4;
+						 break;
+					  case 8:       //press clear
+						 statedisplay = state1;
+						 break;
+					  case 32768:      //press okay
+						 break;
+					  default:        //กดมั่ว
+						 statedisplay = statewrong;
+						 break;
+				   }
+				   break;
+
+			  case state4next4:
+				   switch(ButtonMatrixState)
+				   {
+					  case 16:        //press 4
+						 statedisplay = state5;
+						 break;
+					  case 8:          //press clear
+						 statedisplay = state1;
+						 break;
 					  case 32768:    //press okay
 						  break;
-					  default:       //กดมั่ว
-						  statedisplay = statewrong;
-						  break;
+					  default:           //กดมั่ว
+						 statedisplay = statewrong;
+						 break;
 					}
+				    break;
 
-				case state3next3:
-					switch(ButtonMatrixState)
-					{
-					   case 1024:      //press 3
-						  statedisplay = state4;
-						  break;
-					   case 8:       //press clear
-						  statedisplay = state1;
-						  break;
-					   case 32768:      //press okay
-						  break;
-					   default:        //กดมั่ว
-						  statedisplay = statewrong;
-						  break;
-					}
-
-				case state4next4:
-					 switch(ButtonMatrixState)
-					 {
-						case 16:        //press 4
-						   statedisplay = state5;
-						   break;
-						case 8:
-						   statedisplay = state1;
-						   break;
-						default:
-						   statedisplay = statewrong;
-						   break;
-					 }
-
-				 case state2next3:
+				 case state5next0:
 					  switch(ButtonMatrixState)
 					  {
-						 case 512:
+						 case 4096:         //press 0
 							statedisplay = state2;
 							break;
 						 case 8:

@@ -128,11 +128,11 @@ int main(void)
 
 		  switch(statedisplay)
 		  {
-			  case state1next6:
-				  switch(ButtonMatrixState)
+		  	  case state1next6:
+		  		  switch(ButtonMatrixState)
 				  {
-					  case 64:     //press 6
-						  statedisplay = state2next2;
+				  	  case 64:     //press 6
+				  		  statedisplay = state2next2;
 						  break;
 					  case 8:      //press clear
 						  statedisplay = state1next6;
@@ -145,46 +145,45 @@ int main(void)
 				  }
 				  break;
 
-
-			  case state2next2:
+		      case state2next2:
 				  switch(ButtonMatrixState)
 				  {
-					 case 512:       //press 2
-						 statedisplay = state3next3;
-						 break;
-					 case 8:        //press clear
-						 statedisplay = state1next6;
-						 break;
-					 case 32768:    //press okay
-						 break;
-					 default:       //กดมั่ว
-						 statedisplay = statewrong;
-						 break;
+				  	  case 512:       //press 2
+				  		  statedisplay = state3next3;
+						  break;
+				      case 8:        //press clear
+						  statedisplay = state1next6;
+						  break;
+					  case 32768:    //press okay
+						  break;
+					  default:       //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
 				  }
 				  break;
 
 			  case state3next3:
-				   switch(ButtonMatrixState)
-				   {
-					  case 1024:      //press 3
-						 statedisplay = state4next4;
-						 break;
+				  switch(ButtonMatrixState)
+				  {
+				  	  case 1024:      //press 3
+				  		  statedisplay = state4next4;
+						  break;
 					  case 8:       //press clear
-						 statedisplay = state1next6;
-						 break;
+						  statedisplay = state1next6;
+						  break;
 					  case 32768:      //press okay
-						 break;
+						  break;
 					  default:        //กดมั่ว
-						 statedisplay = statewrong;
-						 break;
+						  statedisplay = statewrong;
+						  break;
 				   }
 				   break;
 
 			  case state4next4:
-				   switch(ButtonMatrixState)
-				   {
-					  case 16:        //press 4
-						  statedisplay = state5next0;
+				  switch(ButtonMatrixState)
+				  {
+				  	  case 16:        //press 4
+				  		  statedisplay = state5next0;
 						  break;
 					  case 8:          //press clear
 						  statedisplay = state1next6;
@@ -197,159 +196,159 @@ int main(void)
 					}
 				    break;
 
-				 case state5next0:
-					  switch(ButtonMatrixState)
-					  {
-						 case 4096:         //press 0
-							statedisplay = state6next5;
-							break;
-						 case 8:                         //press clear
-							statedisplay = state1next6;
-							break;
-						 case 32768:       //press okay
-							 break;
-						 default:     //กดมั่ว
-							statedisplay = statewrong;
-							break;
-					  }
-					  break;
+	          case state5next0:
+	        	  switch(ButtonMatrixState)
+				  {
+				  	  case 4096:         //press 0
+				  		  statedisplay = state6next5;
+						  break;
+					  case 8:                         //press clear
+						  statedisplay = state1next6;
+						  break;
+					  case 32768:       //press okay
+						  break;
+					  default:     //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
+				  }
+				  break;
 
-				  case state6next5:
-					   switch(ButtonMatrixState)
-					   {
-						  case 32:            //press 5
-							 statedisplay = state7next0;
-							 break;
-						  case 8:             //press  clear
-							 statedisplay = state1next6;
-							 break;
-						  case 32768:      //press okay
-							 break;
-						  default:           //กดมั่ว
-							 statedisplay = statewrong;
-							 break;
-					   }
-					   break;
+			  case state6next5:
+				  switch(ButtonMatrixState)
+				  {
+				  	  case 32:            //press 5
+				  		  statedisplay = state7next0;
+						  break;
+					  case 8:             //press  clear
+						  statedisplay = state1next6;
+						  break;
+					  case 32768:      //press okay
+						  break;
+					  default:           //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
+				  }
+			      break;
 
-				  case state7next0:
-						 switch(ButtonMatrixState)
-						 {
-							case 4096:            //press 0
-								statedisplay = state8next0;
-								break;
-							case 8:                  //press clear
-								statedisplay = state1next6;
-								break;
-							case 32768:              //press okay
-								break;
-							default:              //กดมั่ว
-								statedisplay = statewrong;
-								break;
-						 }
-						 break;
+			  case state7next0:
+				  switch(ButtonMatrixState)
+				  {
+				  	  case 4096:            //press 0
+				  		  statedisplay = state8next0;
+					      break;
+					  case 8:                  //press clear
+						  statedisplay = state1next6;
+						  break;
+					  case 32768:              //press okay
+						  break;
+					  default:              //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
+				  }
+				  break;
 
-					 case state8next0:
-						  switch(ButtonMatrixState)
-						  {
-							  case 4096:           //press 0
-								   statedisplay = state9next0;
-								   break;
-							  case 8:       //press clear
-								   statedisplay = state1next6;
-								   break;
-							  case 32768:    //press okay
-								  break;
-							  default:     //กดมั่ว
-								   statedisplay = statewrong;
-								   break;
-						   }
-						   break;
+			  case state8next0:
+				  switch(ButtonMatrixState)
+				  {
+				  	  case 4096:           //press 0
+				  		  statedisplay = state9next0;
+						  break;
+					  case 8:       //press clear
+						  statedisplay = state1next6;
+						  break;
+					  case 32768:    //press okay
+					      break;
+					  default:     //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
+				  }
+				  break;
 
-					  case state9next0:
-						  switch(ButtonMatrixState)
-						  {
-						  	  case 4096:         //press 0
-						  		  statedisplay = state10next2;
-						  		  break;
-							  case 8:                 //press clear
-								  statedisplay = state1next6;
-								  break;
-							  case 32768:      //press okay
-								  break;
-						      default:      //กดมั่ว
-							      statedisplay = statewrong;
-								  break;
-						   }
-						   break;
+			  case state9next0:
+				  switch(ButtonMatrixState)
+				  {
+				  	  case 4096:         //press 0
+				  		  statedisplay = state10next2;
+						  break;
+				      case 8:                 //press clear
+						  statedisplay = state1next6;
+						  break;
+					  case 32768:      //press okay
+						  break;
+					  default:      //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
+			      }
+				  break;
 
-						 case state10next2:
-							  switch(ButtonMatrixState)
-							  {
-								 case 512:             //press 2
-									  statedisplay = state11next5;
-									  break;
-								 case 8:             //press clear
-									  statedisplay = state1next6;
-									  break;
-								 case 32768:               //press okay
-									 break;
-								 default:           //กดมั่ว
-									  statedisplay = statewrong;
-									  break;
-							  }
-							  break;
+		      case state10next2:
+		    	  switch(ButtonMatrixState)
+				  {
+				  	  case 512:             //press 2
+				  		  statedisplay = state11next5;
+						  break;
+					  case 8:             //press clear
+						  statedisplay = state1next6;
+						  break;
+					  case 32768:               //press okay
+						  break;
+					  default:           //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
+				  }
+                  break;
 
-						 case state11next5:
-							  switch(ButtonMatrixState)
-							  {
-							  	  case 32:                 //press 5
-							  		  statedisplay = stateONLED;
-							  		  break;
-							      case 8:            //press clear
-							    	  statedisplay = state1next6;
-							  		  break;
-							      case 32768:          //press okay
-							    	  break;
-							  	  default:                 //กดมั่ว
-							  		  statedisplay = statewrong;
-							  		  break;
-					           }
-							   break;
+			  case state11next5:
+				  switch(ButtonMatrixState)
+				  {
+				  	  case 32:                 //press 5
+				  		  statedisplay = stateONLED;
+						  break;
+				      case 8:            //press clear
+				    	  statedisplay = state1next6;
+						  break;
+					  case 32768:          //press okay
+						  break;
+					  default:                 //กดมั่ว
+						  statedisplay = statewrong;
+						  break;
+				  }
+				  break;
 
-						  case stateONLED:
-							    switch(ButtonMatrixState)
-							    {
-							  		case 8:           //press clear
-							  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
-							  			statedisplay = state1next6;
-							  		    break;
-							  		case 32768:            //press okay and ONLED
-							  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
-							  			break;
-							  	    default:      //กดมั่ว
-							  	    	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
-							  	    	statedisplay = statewrong;
-							  			break;
-							    }
-							    break;
+			  case stateONLED:
+				  switch(ButtonMatrixState)
+				  {
+				  	  case 8:           //press clear
+				  		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+						  statedisplay = state1next6;
+						  break;
+				      case 32768:            //press okay and ONLED
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
+						  break;
+					  default:      //กดมั่ว
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+						  statedisplay = statewrong;
+					      break;
+			      }
+			      break;
 
-						   case statewrong:
-							   switch(ButtonMatrixState)
-							   {
-							   	   case 8:
-							    	   statedisplay = state1next6;
-							    	   break;
-							   	   case 32768:
-							   		   break;
-							       default:
-							    	   statedisplay = statewrong;
-							    	   break;
-							   }
-							   break;
+		      case statewrong:
+		    	  switch(ButtonMatrixState)
+				  {
+				  	  case 8:
+				  		  statedisplay = state1next6;
+						  break;
+					  case 32768:
+					      break;
+					  default:
+						  statedisplay = statewrong;
+						  break;
+			      }
+				  break;
 
-		  	  	  }
-	    }
-	  	allaybutton[1] = allaybutton[0];
+		  }
+	  }
+	  allaybutton[1] = allaybutton[0];
   }
   /* USER CODE END 3 */
 }

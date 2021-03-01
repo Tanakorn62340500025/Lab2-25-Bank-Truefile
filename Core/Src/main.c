@@ -114,6 +114,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   uint16_t allaybutton[2];
   uint8_t statedisplay = state1next6;
+  uint32_t count = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -125,6 +126,12 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  ButtonMatrixUpdate();
 	  allaybutton[0] = ButtonMatrixState;
+	  if(count == 0)
+	  {
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+		  count = 1;
+	  }
+
 	  if(allaybutton[0] != 0 && allaybutton[1] == 0)
 	  {
 

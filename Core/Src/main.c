@@ -144,6 +144,7 @@ int main(void)
 				  		  statedisplay = state2next2;
 						  break;
 					  case 8:      //press clear
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = state1next6;
 						  break;
 					  case 32768:   //press okay
@@ -161,7 +162,8 @@ int main(void)
 				  		  statedisplay = state3next3;
 						  break;
 				      case 8:        //press clear
-						  statedisplay = state1next6;
+				    	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+				    	  statedisplay = state1next6;
 						  break;
 					  case 32768:    //press okay
 						  break;
@@ -178,6 +180,7 @@ int main(void)
 				  		  statedisplay = state4next4;
 						  break;
 					  case 8:       //press clear
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = state1next6;
 						  break;
 					  case 32768:      //press okay
@@ -195,6 +198,7 @@ int main(void)
 				  		  statedisplay = state5next0;
 						  break;
 					  case 8:          //press clear
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = state1next6;
 						  break;
 					  case 32768:    //press okay
@@ -212,6 +216,7 @@ int main(void)
 				  		  statedisplay = state6next5;
 						  break;
 					  case 8:                         //press clear
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = state1next6;
 						  break;
 					  case 32768:       //press okay
@@ -229,6 +234,7 @@ int main(void)
 				  		  statedisplay = state7next0;
 						  break;
 					  case 8:             //press  clear
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = state1next6;
 						  break;
 					  case 32768:      //press okay
@@ -246,6 +252,7 @@ int main(void)
 				  		  statedisplay = state8next0;
 					      break;
 					  case 8:                  //press clear
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = state1next6;
 						  break;
 					  case 32768:              //press okay
@@ -263,6 +270,7 @@ int main(void)
 				  		  statedisplay = state9next0;
 						  break;
 					  case 8:       //press clear
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = state1next6;
 						  break;
 					  case 32768:    //press okay
@@ -280,7 +288,8 @@ int main(void)
 				  		  statedisplay = state10next2;
 						  break;
 				      case 8:                 //press clear
-						  statedisplay = state1next6;
+				    	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+				    	  statedisplay = state1next6;
 						  break;
 					  case 32768:      //press okay
 						  break;
@@ -297,6 +306,7 @@ int main(void)
 				  		  statedisplay = state11next5;
 						  break;
 					  case 8:             //press clear
+						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = state1next6;
 						  break;
 					  case 32768:               //press okay
@@ -314,6 +324,7 @@ int main(void)
 				  		  statedisplay = stateONLED;
 						  break;
 				      case 8:            //press clear
+				    	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 				    	  statedisplay = state1next6;
 						  break;
 					  case 32768:          //press okay
@@ -335,7 +346,6 @@ int main(void)
 						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
 						  break;
 					  default:      //กดมั่ว
-						  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 						  statedisplay = statewrong;
 					      break;
 			      }
@@ -344,12 +354,13 @@ int main(void)
 		      case statewrong:
 		    	  switch(ButtonMatrixState)
 				  {
-				  	  case 8:
+				  	  case 8:       //press clear
+				  		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 				  		  statedisplay = state1next6;
 						  break;
-					  case 32768:
+					  case 32768:       //press okay
 					      break;
-					  default:
+					  default:       //กดมั่ว
 						  statedisplay = statewrong;
 						  break;
 			      }
